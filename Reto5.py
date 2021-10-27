@@ -200,16 +200,22 @@ Videoj[2].entregar()
 Videoj[3].entregar()
 
 #4 - Contamos cuantas series y video juegos hay entregados y los devolvemos
+#0 series entregadas
 entr = 0
+#Recorremos la lista de series
 for ser in Series:
+    #Si esta entregada la devolvemos y sumamos 1
     if ser.isEntregado():
         ser.devolver()
         entr += 1
 
 print(f"Había {entr} series entregadas")
 
+#0 videojuegos entregados
 entr = 0
+#Recorremos la lista de videojuegos
 for vj in Videoj:
+    #Si esta entregado lo devolvemos y sumamos 1
     if vj.isEntregado():
         vj.devolver()
         entr += 1
@@ -221,15 +227,21 @@ print(f"Había {entr} videojuegos entregados")
 con mas temporadas. Muéstralos en pantalla con toda su
 información (usa el método __ str
 """
+#Ponemos que el que tiene mas horas es el primero
 mashoras = Videoj[0]
+#Recorremos la lista hasta el penultimo
 for i in range(len(Videoj)-1):    
+    #Si el actual tiene menos horas que el siguiente, decimos que el que tiene mas horas es el siguiente
     if mashoras.horas_est < Videoj[i+1].horas_est:
         mashoras = Videoj[i+1]
     
 print("El videojuego con mas horas Estimadas es: \n", mashoras)
 
+#Ponemos la primera serie como la que tiene mas temporadas
 mastemp = Series[0]
+#Recorremos la lista hasta el penultimo
 for i in range(len(Series)-1):
+    #Si el siguiente, tiene mas que el actual, cambiamos la variable y seguimos
     if mastemp.num_temp < Series[i+1].num_temp:
         mastemp = Series[i+1]
 
