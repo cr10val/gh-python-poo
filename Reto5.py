@@ -165,12 +165,13 @@ class Videojuego(Entregable):
         return self.__Entregado
         
     #Comparado a 
-    #Devuelve 1 si es mayor, 2 si es menor y 0 si son iguales
-    
     def compareTo(self, objeto):
-        if(self.__Horas_Est >objeto.Horas_Est):
+        """
+        Devuelve 1 si es mayor, 2 si es menor y 0 si son iguales
+        """
+        if(self.__Horas_Est >objeto.horas_est):
             return 1
-        elif(self.__Horas_Est<objeto.Horas_Est):
+        elif(self.__Horas_Est<objeto.horas_est):
             return 2
         else:
             return 0
@@ -232,7 +233,9 @@ mashoras = Videoj[0]
 #Recorremos la lista hasta el penultimo
 for i in range(len(Videoj)-1):    
     #Si el actual tiene menos horas que el siguiente, decimos que el que tiene mas horas es el siguiente
-    if mashoras.horas_est < Videoj[i+1].horas_est:
+    #si es igual no hace nada
+    #if mashoras.horas_est < Videoj[i+1].horas_est:
+    if mashoras.compareTo(Videoj[i+1]) == 2:
         mashoras = Videoj[i+1]
     
 print("El videojuego con mas horas Estimadas es: \n", mashoras)
@@ -242,7 +245,9 @@ mastemp = Series[0]
 #Recorremos la lista hasta el penultimo
 for i in range(len(Series)-1):
     #Si el siguiente, tiene mas que el actual, cambiamos la variable y seguimos
-    if mastemp.num_temp < Series[i+1].num_temp:
+    #Si es igual no hace nada
+    #if mastemp.num_temp < Series[i+1].num_temp:
+    if mastemp.compareTo(Series[i+1]) == 2:
         mastemp = Series[i+1]
 
 print("La serie con mas temporadas es: \n", mastemp)
